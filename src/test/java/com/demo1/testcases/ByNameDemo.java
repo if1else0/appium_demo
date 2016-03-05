@@ -37,7 +37,7 @@ public class ByNameDemo {
     @Test
     public void demo() throws InterruptedException {
         Thread.sleep(20000);
-        driver.findElement(By.name("Ê®ÈıÎåÑĞ¾¿½¨±±¾©ÖÁÌ¨±±¸ßÌú")).click();
+        driver.findElement(By.name("åä¸‰äº”ç ”ç©¶å»ºåŒ—äº¬è‡³å°åŒ—é«˜é“")).click();
         Thread.sleep(3000);
     }
 
