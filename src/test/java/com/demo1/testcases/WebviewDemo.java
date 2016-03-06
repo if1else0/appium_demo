@@ -17,7 +17,7 @@ public class WebviewDemo extends BasicTestCase {
         pm.getPageHome().waitForActivityDisplay();
         pm.getPageHome().clickNewsItem(3);
         Util.sleep(4);
-        pm.getPageNews().swithContext();
+        pm.getPageNews().switchContext();
         System.out.println(pm.getPageNews().getNewsTitle());
     }
 }

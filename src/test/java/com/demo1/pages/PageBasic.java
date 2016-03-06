@@ -1,6 +1,7 @@
 package com.demo1.pages;
 
 import com.demo1.UIHelper;
+import io.appium.java_client.AppiumDriver;
 
 import java.util.Set;
 
@@ -12,7 +13,7 @@ public class PageBasic {
     public PageBasic(UIHelper helper){
         this.helper = helper;
     }
-    public void swithContext(){
+    public void switchContext(){
         Set<String> contextNames = helper.getDriver().getContextHandles();
         for (String contextName : contextNames) {
             System.out.println(contextName);
@@ -24,6 +25,10 @@ public class PageBasic {
     }
 
     public void switchToNative(){
-        helper.getDriver().context("NATIVE");
+        helper.getDriver().context("NATIVE_APP");
+    }
+
+    public AppiumDriver getDriver(){
+        return helper.getDriver();
     }
 }

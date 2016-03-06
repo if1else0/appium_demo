@@ -1,5 +1,6 @@
 package com.demo1.testcases;
 
+import com.demo1.Util;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
@@ -38,23 +39,34 @@ public class WeixinTest {
 
     @Test
     public void testHB() throws InterruptedException {
-        Thread.sleep(10000);
-        driver.findElement(By.name("Aaron")).click();
-        int size = driver.findElementsById("com.tencent.mm:id/b_").size();
-        ((WebElement)driver.findElementsById("com.tencent.mm:id/b_").get(size - 1)).click();
-        if(!driver.findElements(By.id("com.tencent.mm:id/b43")).isEmpty()){
-            driver.findElement(By.id("com.tencent.mm:id/b43")).click();
-            if(!driver.findElements(By.id("com.tencent.mm:id/cdh")).isEmpty()){
-                driver.findElement(By.id("com.tencent.mm:id/cdh")).click();
-                System.out.println("===========================");
+        Util.waitForElementById(driver,"com.tencent.mm:id/acu");
+        driver.findElement(By.name("Aaron、李惠娟、startup")).click();
+        long timeout = System.currentTimeMillis() + 4 * 60 * 1000;
+        while(System.currentTimeMillis() < timeout){
+            int size = driver.findElementsById("com.tencent.mm:id/b_").size();
+            if(size > 0){
+                ((WebElement)driver.findElementsById("com.tencent.mm:id/b_").get(size - 1)).click();
+                if(!driver.findElements(By.id("com.tencent.mm:id/b43")).isEmpty()){
+                    driver.findElement(By.id("com.tencent.mm:id/b43")).click();
+                    if(!driver.findElements(By.id("com.tencent.mm:id/cdh")).isEmpty()){
+                        driver.findElement(By.id("com.tencent.mm:id/cdh")).click();
+                        System.out.println("===========================");
+                    }
+                }else{
+                    //两种情况，一种是领取到了，再次进入，已经被领取完，直接进入详情页面，
+                    //另外一种是没领取到，直接在红包页面，提示手慢了
+                    //第一种情况
+                    if(!driver.findElements(By.id("com.tencent.mm:id/cdh")).isEmpty()){
+                        driver.findElement(By.id("com.tencent.mm:id/cdh")).click();
+                    }else{
+                        driver.navigate().back();
+                    }
+                    Util.waitForElementById(driver,"com.tencent.mm:id/c5k");
+                }
             }
-        }else{
-            driver.navigate().back();
+
         }
-        while(true){
-            Thread.sleep(3000);
-            System.out.println("abc");
-        }
+
     }
 
     @After

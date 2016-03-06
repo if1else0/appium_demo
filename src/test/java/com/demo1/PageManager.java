@@ -14,6 +14,9 @@ public class PageManager {
     PageNews pageNews;
     PagePostMoment pagePostMoment;
     PageBasic pageBasic;
+    PageHome1 pageHome1;
+    PageNews1 pageNews1;
+    PagePostMoment1 pagePostMoment1;
 
     public PageManager(UIHelper helper){
         this.helper = helper;
@@ -66,5 +69,26 @@ public class PageManager {
             pageBasic = new PageBasic(helper);
         }
         return pageBasic;
+    }
+
+    public PageHome1 getPageHome1(){
+        if(pageHome1 == null){
+            pageHome1 = new PageHome1(helper);
+        }
+        return pageHome1;
+    }
+
+    public PageNews1 getPageNews1(){
+        if(pageNews1 == null){
+            pageNews1 = new PageNews1(helper);
+        }
+        return pageNews1;
+    }
+
+    public PagePostMoment1 getPagePostMoment1(){
+        if(pagePostMoment1 == null){
+            pagePostMoment1 = new PagePostMoment1(helper);
+        }
+        return pagePostMoment1;
     }
 }
