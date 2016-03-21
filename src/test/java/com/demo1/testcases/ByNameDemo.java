@@ -38,7 +38,7 @@ public class ByNameDemo {
     public void demo() throws InterruptedException {
         Thread.sleep(20000);
         driver.findElement(By.name("9家药品批发企业涉问题疫苗案")).click();
-        Thread.sleep(3000);
+        Thread.sleep(7000);
     }
 
     @After
