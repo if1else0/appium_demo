@@ -15,7 +15,7 @@ public class WebviewDemo extends BasicTestCase {
     @Test
     public void webview() throws InterruptedException {
         pm.getPageHome().waitForActivityDisplay();
-        pm.getPageHome().clickNewsItem(3);
+        pm.getPageHome().clickNewsItem(2);
         Util.sleep(4);
         pm.getPageNews().switchContext();
         System.out.println(pm.getPageNews().getNewsTitle());
